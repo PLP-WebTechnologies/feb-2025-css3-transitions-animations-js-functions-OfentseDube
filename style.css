@@ -1,0 +1,659 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    background-image: url('https://images.unsplash.com/photo-1511184150666-9bb7e41c88f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Header styles */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* Navigation styles */
+nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: #0066cc;
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0066cc;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Main content styles */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.news-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c2c2c;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Organizations Section Styles */
+.organization-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.organization-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    margin: 10px;
+}
+
+.organization-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.organization-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 0.5rem;
+}
+
+.org-contribution {
+    font-weight: bold;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.organization-card p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Water Crisis Graph Styles */
+.graph-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.graph {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+    padding: 1rem;
+    position: relative;
+    animation: drawGraph 2s ease-out;
+}
+
+@keyframes drawGraph {
+    from {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+    }
+}
+
+.bar-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0.5rem;
+    position: relative;
+}
+
+.bar {
+    width: 100%;
+    background-color: #4CAF50;
+    border-radius: 5px 5px 0 0;
+    transition: height 0.3s ease;
+    position: relative;
+    min-width: 40px;
+}
+
+.bar:hover {
+    background-color: #45a049;
+}
+
+.bar-label {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.bar-value {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.graph-legend {
+    text-align: center;
+    margin-top: 2rem;
+    color: #333;
+    font-style: italic;
+}
+
+/* Location Images Styles */
+.location-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.image-container {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    transform: translateY(-5px);
+}
+
+.location-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    margin: 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0.5rem 0;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .news-section {
+        padding: 1rem;
+    }
+    
+    .organization-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .graph {
+        height: 200px;
+    }
+    
+    .bar {
+        min-width: 30px;
+    }
+    
+    .bar-label, .bar-value {
+        font-size: 0.8rem;
+    }
+    
+    .location-images {
+        grid-template-columns: 1fr;
+    }
+    
+    .location-image {
+        height: 200px;
+    }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #0052a3;
+    transform: scale(1.05);
+}
+
+/* Dark theme */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-theme .organization-card {
+    background-color: #2d2d2d;
+    border-color: #404040;
+    color: #ffffff;
+}
+
+.dark-theme nav ul li a {
+    color: #ffffff;
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme p,
+.dark-theme .subtitle,
+.dark-theme .byline,
+.dark-theme .location,
+.dark-theme .lead,
+.dark-theme .image-caption {
+    color: #ffffff;
+}
+
+.dark-theme .news-section {
+    background-color: #2d2d2d;
+    border: 1px solid #404040;
+}
+
+.dark-theme .org-contribution {
+    color: #ffffff;
+    border-bottom: 2px solid #0066cc;
+}
+
+.dark-theme .organization-card p {
+    color: #e0e0e0;
+}
+
+.dark-theme .image-caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+}
+
+.dark-theme .theme-toggle {
+    background-color: #404040;
+    color: #ffffff;
+    border: 1px solid #606060;
+}
+
+.dark-theme .theme-toggle:hover {
+    background-color: #505050;
+}
+
+.dark-theme .loading::after {
+    border: 5px solid #404040;
+    border-top: 5px solid #0066cc;
+}
+
+/* Loading animation */
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #0066cc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Enhanced button animations */
+button, .button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover, .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active, .button:active {
+    transform: translateY(1px);
+}
+
+/* Enhanced image hover effects */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover::after {
+    opacity: 1;
+}
+
+/* Pulse animation for important elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Bounce animation for call-to-action elements */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Enhanced navigation link animations */
+nav a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0066cc;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Card hover effects */
+.organization-card {
+    transition: all 0.3s ease;
+}
+
+.organization-card:hover {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0066cc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Fade-in animation for content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Shake animation for error states */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.line-graph {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.line-graph svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.line-graph text {
+    font-size: 12px;
+    fill: #333;
+}
+
+.line-graph .grid-lines line {
+    stroke-width: 1;
+} 
